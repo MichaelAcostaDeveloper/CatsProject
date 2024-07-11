@@ -1,0 +1,18 @@
+{
+  "name": "catsproject",
+  "version": "1.0.0",
+  "description": "Es un proyecto base para aprender a usar API REST con JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "javascript"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Michael Acosta",
+  "license": "ISC"
+}
