@@ -56,8 +56,13 @@ async function loadRandomCats() {
         console.log('>>>>>> ShowMessage>>>>>' + showMessage);
         const imagen1 = document.getElementById('img1');
         const imagen2 = document.getElementById('img2');
+        const boton1 = document.getElementById('bt1');
+        const boton2 = document.getElementById('bt2');
         imagen1.src = data[0].url;
         imagen2.src = data[1].url;
+
+        boton1.onclick = () => saveFavouriteCats(data[0].id);
+        boton2.onclick = () => saveFavouriteCats(data[0].id);
     }
 }
 
@@ -101,14 +106,14 @@ async function loadFavoritesCats() {
 }
 
 //Función para guardar al cat favorito
-async function saveFavouriteCats() {
+async function saveFavouriteCats(id) {
     const rest = await fetch(API_URL_FAVOURITES, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            image_id: 'dje'
+            image_id: id
         }),
     });
     const data = await rest.json();
