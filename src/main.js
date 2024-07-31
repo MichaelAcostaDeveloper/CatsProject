@@ -8,6 +8,8 @@ const API_URL_FAVOURITES =
     'https://api.thecatapi.com/v1/favourites/?api_key=live_K2zNNzvRvDfVTwYQ8fS1icitJFrZCa4IO7hYfqUUjWExuVwK5mggUmxjG1ApH2KZ';
 const API_URL_FAVOURITES_WITHOUT_KEY =
     'https://api.thecatapi.com/v1/favourites/?limit=2';
+const API_URL_FAVOURITES_DELETE = (id) =>
+    `https://api.thecatapi.com/v1/favourites/${id}?api_key=live_K2zNNzvRvDfVTwYQ8fS1icitJFrZCa4IO7hYfqUUjWExuVwK5mggUmxjG1ApH2KZ`;
 /**
  * Usando promesas
  */
@@ -62,7 +64,7 @@ async function loadRandomCats() {
         imagen2.src = data[1].url;
 
         boton1.onclick = () => saveFavouriteCats(data[0].id);
-        boton2.onclick = () => saveFavouriteCats(data[0].id);
+        boton2.onclick = () => saveFavouriteCats(data[1].id);
     }
 }
 
@@ -79,14 +81,21 @@ async function loadFavoritesCats() {
             console.log('>>>>Data Favourites>>>>>>' + JSON.stringify(data));
             console.log('>>>>Data Favourites without JSON>>>>>>' + JSON.stringify(dataWithOutJSON));
             showMessage.innerHTML = 'éxito!!! ' + '>>>>>>' + JSON.stringify(data);
+
+            const seccion = document.getElementById('favoritesCatties');
+            seccion.innerHTML = '';
+            const h2 = document.createElement('h2');
+            const h2Text = document.createTextNode ('miCHIS favoritos');
+            h2.appendChild(h2Text);
+            seccion.appendChild(h2);
             data.forEach(michi => {
-                const seccion = document.getElementById('favoritesCatties');
                 const articulo = document.createElement('article');
                 const imagen = document.createElement('img');
                 const boton = document.createElement('button');
                 const botonText = document.createTextNode('Sacar al michi de favoritos');
 
                 boton.appendChild(botonText);
+                boton.onclick = () => deleteFavouriteMichi(michi.id);
                 imagen.src = michi.image.url;
                 imagen.width = 100;
 
@@ -120,6 +129,29 @@ async function saveFavouriteCats(id) {
     const dataWhitOutJSON = await rest;
     if (rest.status !== 200) {
         showMessage.innerHTML = 'Error >>>' + rest.status + data;
+    }else{
+        console.log('El michi '+data.id+ 'se añadió con exito.');
+        loadFavoritesCats();
+    }
+    console.log('>>>>>Save elements>>>>>');
+    console.log('>>>rest>>>> ' + JSON.stringify(rest));
+    console.log('>>>data>>> ' + JSON.stringify(data));
+    console.log('>>>dataWhitOutJSON>>> ' + dataWhitOutJSON);
+
+}
+
+//Función JS para eliminar un elemento de Favoritos
+async function deleteFavouriteMichi(id){
+    const rest = await fetch(API_URL_FAVOURITES_DELETE(id), {
+        method: 'DELETE',
+        });
+    const data = await rest.json();
+    const dataWhitOutJSON = await rest;
+    if (rest.status !== 200) {
+        showMessage.innerHTML = 'Error >>>' + rest.status + data;
+    }else{
+        console.log('Michi '+data.id+' eliminado de favoritos');
+        loadFavoritesCats();
     }
     console.log('>>>>>Save elements>>>>>');
     console.log('>>>rest>>>> ' + JSON.stringify(rest));
