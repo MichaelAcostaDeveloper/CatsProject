@@ -130,7 +130,7 @@ async function saveFavouriteCats(id) {
     const rest = await fetch(API_URL_FAVOURITES_IMPROVED, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'text/plain', // cambios en el tipo de contenido
             'X-API-KEY': 'live_K2zNNzvRvDfVTwYQ8fS1icitJFrZCa4IO7hYfqUUjWExuVwK5mggUmxjG1ApH2KZ'
         },
         body: JSON.stringify({
