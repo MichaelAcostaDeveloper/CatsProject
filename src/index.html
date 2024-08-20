@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Cats</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>APP Gatitos</h1>
     <p id="message"></p>
+
+    <!-- Creación del formulario -->
+    <section id="uploadingCats">
+      <h2>Sube la foto de tu gato</h2>
+
+      <form id="uploadingForm">
+        <input id="file" type="file" name="file" />
+        <button type="button" onclick="uploadMichiPhoto()">Subir foto de michi</button>
+      </form>
+    </section>
+
+
+
     <section id="randomMichis">
-        <h2>Gatitos aleatorios</h2>
-        <article>
-            <img id="img1" width="150">
-            <button id="bt1">Guardar foto en favoritos</button>
-        </article>
+      <h2>Gatitos aleatorios</h2>
+      <article>
+        <img id="img1" width="150" />
+        <button id="bt1">Guardar foto en favoritos</button>
+      </article>
 
-        <article>
-            <img id="img2" width="150">
-            <button id="bt2">Guardar foto en favoritos</button>
-        </article>
+      <article>
+        <img id="img2" width="150" />
+        <button id="bt2">Guardar foto en favoritos</button>
+      </article>
 
-        <button onclick="loadRandomCats()">Recargar</button>
-        <button onclick="loadFavoritesCats()">Cargar a los favoritos</button>
+      <button onclick="loadRandomCats()">Recargar</button>
+      <button onclick="loadFavoritesCats()">Cargar a los favoritos</button>
     </section>
 
     <section id="favoritesCatties">
-        <h2>Gatitos favoritos</h2>
-        <!-- Estructura de la data que se va a visualizar -->
-        <!-- <article>
+      <h2>Gatitos favoritos</h2>
+      <!-- Estructura de la data que se va a visualizar -->
+      <!-- <article>
             <img>
             <button>Sacar al michi de favoritos</button>
         </article> -->
-
     </section>
 
     <script src="./main.js"></script>
-</body>
+  </body>
 </html>

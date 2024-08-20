@@ -13,6 +13,7 @@ const API_URL_FAVOURITES_DELETE = (id) =>
 const API_URL_FAVOURITES_DELETE_IMPROVED = (id) =>
     `https://api.thecatapi.com/v1/favourites/${id}?`;
 const API_URL_FAVOURITES_IMPROVED = 'https://api.thecatapi.com/v1/favourites/';
+const API_URL_UPLOAD = 'https://api.thecatapi.com/v1/images/upload';
 /**
  * Usando promesas
  */
@@ -173,4 +174,30 @@ async function deleteFavouriteMichi(id) {
     console.log('>>>data>>> ' + JSON.stringify(data));
     console.log('>>>dataWhitOutJSON>>> ' + dataWhitOutJSON);
 
+}
+
+
+//Función para subir fotos
+async function uploadMichiPhoto(){
+    const form = document.getElementById('uploadingForm');
+    const formData = new FormData(form);
+    console.log(formData.get('file'));
+
+    const res = await fetch(API_URL_UPLOAD,{
+        method:'POST',
+        headers:{
+            // 'Content-Type':'multipart/form-data',
+            'X-API-KEY':'live_K2zNNzvRvDfVTwYQ8fS1icitJFrZCa4IO7hYfqUUjWExuVwK5mggUmxjG1ApH2KZ'
+        },
+        body: formData,
+    })
+    const data = await res.json();
+    if (res.status !== 201) {
+        showMessage.innerHTML = 'Error>>>>>>' + res.status + data;
+        console.log({data});
+    } else {
+        console.log('Foto del gato subida!!');
+        console.log({data});
+        console.log(data.url);
+    }
 }
