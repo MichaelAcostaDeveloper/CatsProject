@@ -14,6 +14,14 @@ const API_URL_FAVOURITES_DELETE_IMPROVED = (id) =>
     `https://api.thecatapi.com/v1/favourites/${id}?`;
 const API_URL_FAVOURITES_IMPROVED = 'https://api.thecatapi.com/v1/favourites/';
 const API_URL_UPLOAD = 'https://api.thecatapi.com/v1/images/upload';
+
+/**
+ * Usando la libreria Axios
+ */
+const api = axios.create({
+    baseURL: 'https://api.thecatapi.com/v1'
+});
+api.defaults.headers.common['X-API-KEY'] = 'live_K2zNNzvRvDfVTwYQ8fS1icitJFrZCa4IO7hYfqUUjWExuVwK5mggUmxjG1ApH2KZ';
 /**
  * Usando promesas
  */
@@ -67,8 +75,13 @@ async function loadRandomCats() {
         imagen1.src = data[0].url;
         imagen2.src = data[1].url;
 
-        boton1.onclick = () => saveFavouriteCats(data[0].id);
-        boton2.onclick = () => saveFavouriteCats(data[1].id);
+
+        // boton1.onclick = () => saveFavouriteCats(data[0].id);
+        // boton2.onclick = () => saveFavouriteCats(data[1].id);
+
+        //Usando la libreria AXIOS
+        boton1.onclick = () => saveCatsFavoritos(data[0].id);
+        boton2.onclick = () => saveCatsFavoritos(data[1].id);
     }
 }
 
@@ -123,6 +136,30 @@ async function loadFavoritesCats() {
         showMessage.innerHTML = 'Existió un error ' + '>>>>>>' + error.message;
     }
 
+}
+
+/**
+ * Función JS para guardare a un gato favorito usando AXIOS
+ */
+async function saveCatsFavoritos(id){
+    const {data, status} = await api.post('/favourites',{
+        image_id:id,
+    });
+
+    const dataWhitOutJSON = data;
+    console.log('>>>>>'+data);
+    console.log('>>>>>'+dataWhitOutJSON);
+    console.log('>>>>>'+status);
+
+    if (status !== 200) {
+        showMessage.innerHTML = 'Error >>>' + status + JSON.stringify(data);
+    } else {
+        console.log('El michi ' + data.id + 'se añadió con exito.');
+        loadFavoritesCats();
+    }
+    console.log('>>>>>Save elements>>>>>');
+    console.log('>>>data>>> ' + JSON.stringify(data));
+    console.log('>>>dataWhitOutJSON>>> ' + dataWhitOutJSON);
 }
 
 //Función para guardar al cat favorito
