@@ -1,0 +1,15 @@
+/* .oxygen-mono-regular {
+    font-family: "Oxygen Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+  } */
+  body{
+    font-family: "Oxygen Mono", monospace;
+    font-style: normal;
+  }
+  h1{
+    font-weight: 400;
+  }
+  h2{
+    font-weight: 200;
+  }
