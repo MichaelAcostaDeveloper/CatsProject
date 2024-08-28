@@ -16,50 +16,44 @@
   <body>
     <div class="title-container">
       <h1 class="oxygen-mono-regular">kitties app</h1>
-      <p id="message"></p>
     </div>
 
-
-      <div class="data-container">
-        <!-- Creación del formulario -->
-        <section class="form-container" id="uploadingCats">
-          <h2>Upload your cat's photo</h2>
-          <form id="uploadingForm" class="upload-container">
-            <input id="file" type="file" name="file" />
-            <button type="button" onclick="uploadMichiPhoto()">
-              Upload photo
+    <div class="data-container">
+      <!-- Creación del formulario -->
+      <section class="form-container" id="uploadingCats">
+        <h2>Upload your cat's photo</h2>
+        <form class="upload-container" id="uploadingForm">
+          <input id="file" type="file" name="file" />
+          <button type="button" onclick="uploadMichiPhoto()">
+            Upload photo
+          </button>
+        </form>
+      </section>
+      <!-- Show all cats of de API -->
+      <section class="kitties-container" id="randomMichis">
+        <h2>All kitties</h2>
+        <div class="random-photos-container">
+          <article>
+            <img class="cat-image" id="img1" />
+            <button id="bt1">
+              <img src="./images/flag.svg" alt="Favorite" />
             </button>
-          </form>
-        </section>
-        <!-- Show all cats of de API -->
-        <section class="kitties-container" id="randomMichis">
-          <h2>All kitties</h2>
-          <div class="random-photos-container">
-            <article>
-              <img class="cat-image" id="img1"/>
-              <button id="bt1">
-                <img src="./images/flag.svg" alt="Favorite">
-              </button>
-            </article>
-  
-            <article>
-              <img class="cat-image" id="img2"/>
-              <button id="bt2">
-                <img src="./images/flag.svg" alt="Favorite">
-              </button>
-            </article>
-          </div>
-          <div class="refresh-container">
-            <button onclick="loadRandomCats()">
-              <img src="./images/refresh.svg" alt="Favorite">
+          </article>
+
+          <article>
+            <img class="cat-image" id="img2" />
+            <button id="bt2">
+              <img src="./images/flag.svg" alt="Favorite" />
             </button>
-          </div>
-        </section>
-      </div>
-      
-
-
-
+          </article>
+        </div>
+        <div class="refresh-container">
+          <button onclick="loadRandomCats()">
+            <img src="./images/refresh.svg" alt="Favorite" />
+          </button>
+        </div>
+      </section>
+    </div>
 
     <!-- Favorities cats -->
     <section id="favoritesCatties">
@@ -71,6 +65,8 @@
             <button>Sacar al michi de favoritos</button>
         </article> -->
     </section>
+
+    <p id="message"></p>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./main.js"></script>

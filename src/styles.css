@@ -12,7 +12,6 @@ h1 {
 }
 h2 {
   font-weight: 200;
-
 }
 .title-container {
   border-radius: 4px;
@@ -78,16 +77,12 @@ h2 {
   height: 100%;
 }
 
-
-
 .random-photos-container {
-
   width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .random-photos-container article {
@@ -123,13 +118,13 @@ h2 {
   background-color: rgba(0, 0, 0, 0.152);
 }
 
-.refresh-container{
+.refresh-container {
   width: 100%;
   display: flex;
   justify-content: flex-start;
 }
 
-.refresh-container button{
+.refresh-container button {
   border-radius: 50%;
   cursor: pointer;
   color: white;
@@ -138,4 +133,27 @@ h2 {
   background: none;
   margin-left: 12px;
   margin-bottom: 12px;
+}
+
+/* responsive */
+@media only screen and (max-width: 1440px) {
+  .data-container {
+    display: flex;
+    flex-direction: column-reverse;
+    
+  }
+
+  .form-container {
+    margin-top: 16px;
+    width: 100%;
+    padding-bottom: 16px;
+    background: none;
+    border: 0.5px solid black;
+  }
+
+  .kitties-container {
+    width: 100%;
+    background-color: rgb(211, 234, 235);
+    
+  }
 }

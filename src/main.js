@@ -14,7 +14,11 @@ const API_URL_FAVOURITES_DELETE_IMPROVED = (id) =>
     `https://api.thecatapi.com/v1/favourites/${id}?`;
 const API_URL_FAVOURITES_IMPROVED = 'https://api.thecatapi.com/v1/favourites/';
 const API_URL_UPLOAD = 'https://api.thecatapi.com/v1/images/upload';
+/**
+ * Carga automatica de imagenes de gatos.
+ */
 
+loadRandomCats();
 /**
  * Usando la libreria Axios
  */
@@ -39,7 +43,7 @@ api.defaults.headers.common['X-API-KEY'] = 'live_K2zNNzvRvDfVTwYQ8fS1icitJFrZCa4
  * Inicia el proyecto de los cats
  * */
 
-//Variable para manejar mensajes
+//Variable para manejar mensajes y logs
 const showMessage = document.getElementById('message');
 
 //Funcion para llamar a dos elementos de la API
@@ -49,10 +53,10 @@ async function loadRandomCats() {
     console.log('>>>>>Impresión de respuesta>>>>> ' + respuesta);
     console.log('>>>>>Impresión de respuesta.status>>>>> ' + respuesta.status);
     console.log('>>>>>Impresión de respuesta como usando JSON.strigify>>>>> ' + JSON.stringify(respuesta));
-    showMessage.innerHTML = 'Existió un error ' + respuesta.status;
 
 
     const data = await respuesta.json();//-> uso del método .json() para formatear la respuesta de la llamada
+    // la data recibida es un array
     console.log('>>>>>>Impresión de data usando respuesta.json()>>>>> ' + data);
     console.log('>>>>>>>Impresión de data aplicando JSON.stringify>>>>> ' + JSON.stringify(data));
 
@@ -60,13 +64,11 @@ async function loadRandomCats() {
     console.log('>>>>>>>Impresion de data sin formateo .json()>>>>>' + dataWithOutJSON);
     console.log('>>>>>>>Impresion de data sin formateo aplicando JSON.stringify>>>>> ' + JSON.stringify(dataWithOutJSON));
 
-
-
     if (respuesta.status !== 200) {
-        showMessage.innerHTML = 'Existió un error ' + respuesta.status + ' >>>> ' + dataWithOutJSON;
+        showMessage.innerHTML = 'Existió un error ' + respuesta.status + ': ' + JSON.stringify(data);
         console.log('>>>>>> ShowMessage>>>>>' + showMessage);
     } else {
-        showMessage.innerHTML = 'Conexion establecida ' + respuesta.status + ' >>>> ' + JSON.stringify(data);
+        showMessage.innerHTML = 'Conexion establecida ' + respuesta.status + ': ' + JSON.stringify(data);
         console.log('>>>>>> ShowMessage>>>>>' + showMessage);
         const imagen1 = document.getElementById('img1');
         const imagen2 = document.getElementById('img2');
@@ -74,7 +76,6 @@ async function loadRandomCats() {
         const boton2 = document.getElementById('bt2');
         imagen1.src = data[0].url;
         imagen2.src = data[1].url;
-
 
         // boton1.onclick = () => saveFavouriteCats(data[0].id);
         // boton2.onclick = () => saveFavouriteCats(data[1].id);
