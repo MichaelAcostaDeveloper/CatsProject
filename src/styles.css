@@ -3,13 +3,139 @@
     font-weight: 400;
     font-style: normal;
   } */
-  body{
-    font-family: "Oxygen Mono", monospace;
-    font-style: normal;
-  }
-  h1{
-    font-weight: 400;
-  }
-  h2{
-    font-weight: 200;
-  }
+body {
+  font-family: "Oxygen Mono", monospace;
+  font-style: normal;
+}
+h1 {
+  font-weight: 600;
+}
+h2 {
+  font-weight: 200;
+
+}
+.title-container {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.data-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 450px;
+}
+.form-container {
+  border: 1px solid white;
+  width: 40%;
+  background-color: rgb(179, 221, 223);
+  border-radius: 8px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.upload-container input {
+  font-family: "Oxygen Mono", monospace;
+  font-style: normal;
+}
+.upload-container button {
+  font-family: "Oxygen Mono", monospace;
+  font-style: normal;
+  font-size: 16px;
+  background-color: blanchedalmond;
+  color: rgb(122, 120, 120);
+  border: none;
+  border-radius: 8px;
+  height: 48px;
+  width: 278px;
+  cursor: pointer;
+}
+
+.kitties-container {
+  border: 0.5px solid white;
+  background-color: blanchedalmond;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  height: 100%;
+}
+
+
+
+.random-photos-container {
+
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.random-photos-container article {
+  position: relative;
+  width: 50%;
+  padding: 24px;
+}
+.cat-image {
+  width: 250px;
+  height: 250px;
+  margin: 24px;
+  border-radius: 12px;
+  border: 0.5px white solid;
+}
+
+.random-photos-container article button {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  border: none;
+  border-radius: 50%; /* Hace que el botón sea redondo */
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.random-photos-container article button:hover {
+  background-color: rgba(0, 0, 0, 0.152);
+}
+
+.refresh-container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.refresh-container button{
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  border: none;
+  padding: 0;
+  background: none;
+  margin-left: 12px;
+  margin-bottom: 12px;
+}

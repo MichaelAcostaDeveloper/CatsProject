@@ -14,40 +14,56 @@
     />
   </head>
   <body>
-    <h1 class="oxygen-mono-regular">kitties app</h1>
-    <p id="message"></p>
+    <div class="title-container">
+      <h1 class="oxygen-mono-regular">kitties app</h1>
+      <p id="message"></p>
+    </div>
 
-    <!-- Creación del formulario -->
-    <section id="uploadingCats">
-      <h2>Sube la foto de tu gato</h2>
 
-      <form id="uploadingForm">
-        <input id="file" type="file" name="file" />
-        <button type="button" onclick="uploadMichiPhoto()">
-          Subir foto de michi
-        </button>
-      </form>
-    </section>
+      <div class="data-container">
+        <!-- Creación del formulario -->
+        <section class="form-container" id="uploadingCats">
+          <h2>Upload your cat's photo</h2>
+          <form id="uploadingForm" class="upload-container">
+            <input id="file" type="file" name="file" />
+            <button type="button" onclick="uploadMichiPhoto()">
+              Upload photo
+            </button>
+          </form>
+        </section>
+        <!-- Show all cats of de API -->
+        <section class="kitties-container" id="randomMichis">
+          <h2>All kitties</h2>
+          <div class="random-photos-container">
+            <article>
+              <img class="cat-image" id="img1"/>
+              <button id="bt1">
+                <img src="./images/flag.svg" alt="Favorite">
+              </button>
+            </article>
+  
+            <article>
+              <img class="cat-image" id="img2"/>
+              <button id="bt2">
+                <img src="./images/flag.svg" alt="Favorite">
+              </button>
+            </article>
+          </div>
+          <div class="refresh-container">
+            <button onclick="loadRandomCats()">
+              <img src="./images/refresh.svg" alt="Favorite">
+            </button>
+          </div>
+        </section>
+      </div>
+      
 
-    <!-- Show all cats of de API -->
-    <section id="randomMichis">
-      <h2>All kitties</h2>
-      <article>
-        <img id="img1" width="150" />
-        <button id="bt1">Guardar foto en favoritos</button>
-      </article>
 
-      <article>
-        <img id="img2" width="150" />
-        <button id="bt2">Guardar foto en favoritos</button>
-      </article>
 
-      <button onclick="loadRandomCats()">Recargar</button>
-      <button onclick="loadFavoritesCats()">Cargar a los favoritos</button>
-    </section>
 
     <!-- Favorities cats -->
     <section id="favoritesCatties">
+      <button onclick="loadFavoritesCats()">Cargar a los favoritos</button>
       <h2>Favorite kitties</h2>
       <!-- Estructura de la data que se va a visualizar -->
       <!-- <article>
