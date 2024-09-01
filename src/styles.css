@@ -6,6 +6,8 @@
 body {
   font-family: "Oxygen Mono", monospace;
   font-style: normal;
+  display: flex;
+  flex-direction: column;
 }
 h1 {
   font-weight: 600;
@@ -35,7 +37,7 @@ h2 {
   width: 40%;
   background-color: rgb(179, 221, 223);
   border-radius: 8px;
-  height: 100%;
+  height: 408px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -74,11 +76,11 @@ h2 {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  height: 100%;
+  height: 408px;
 }
 
 .random-photos-container {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -89,19 +91,26 @@ h2 {
   position: relative;
   width: 50%;
   padding: 24px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 }
 .cat-image {
-  width: 250px;
-  height: 250px;
+  width: 286px;
+  height: 224px;
+  /* max-width: 250px; */
+  /* height: auto; */
   margin: 24px;
   border-radius: 12px;
   border: 0.5px white solid;
+  object-fit: cover;
 }
 
 .random-photos-container article button {
   position: absolute;
-  bottom: 20px;
-  right: 10px;
+  top: 88%;
+  left: 85%;
+  transform: translate(-50%, -50%);
   width: 50px;
   height: 50px;
   background-color: rgba(0, 0, 0, 0.1);
@@ -140,7 +149,6 @@ h2 {
   .data-container {
     display: flex;
     flex-direction: column-reverse;
-    
   }
 
   .form-container {
@@ -154,6 +162,5 @@ h2 {
   .kitties-container {
     width: 100%;
     background-color: rgb(211, 234, 235);
-    
   }
 }

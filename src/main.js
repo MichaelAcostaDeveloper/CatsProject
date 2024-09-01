@@ -15,9 +15,8 @@ const API_URL_FAVOURITES_DELETE_IMPROVED = (id) =>
 const API_URL_FAVOURITES_IMPROVED = 'https://api.thecatapi.com/v1/favourites/';
 const API_URL_UPLOAD = 'https://api.thecatapi.com/v1/images/upload';
 /**
- * Carga automatica de imagenes de gatos.
+ * Carga automática de imágenes de gatos.
  */
-
 loadRandomCats();
 /**
  * Usando la libreria Axios
@@ -39,8 +38,9 @@ api.defaults.headers.common['X-API-KEY'] = 'live_K2zNNzvRvDfVTwYQ8fS1icitJFrZCa4
 //         imagen2.src = data[1].url;
 //         imagen3.src = data[2].url;
 //     })
+
 /**
- * Inicia el proyecto de los cats
+ * Lógica del proyecto de los cats
  * */
 
 //Variable para manejar mensajes y logs
@@ -70,6 +70,7 @@ async function loadRandomCats() {
     } else {
         showMessage.innerHTML = 'Conexion establecida ' + respuesta.status + ': ' + JSON.stringify(data);
         console.log('>>>>>> ShowMessage>>>>>' + showMessage);
+        //Asignación de data a las imágenes.
         const imagen1 = document.getElementById('img1');
         const imagen2 = document.getElementById('img2');
         const boton1 = document.getElementById('bt1');
